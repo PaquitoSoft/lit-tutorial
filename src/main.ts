@@ -9,6 +9,8 @@ import './complex-article';
 
 import './references';
 
+import './counter-app';
+
 const name = 'PaquitoSoft';
 const $greeting = html`
 	<h1>Hello, ${name}</h1>
@@ -103,6 +105,8 @@ const $references = html`
 	<focusable-input></focusable-input>
 `;
 
+const $counterApp = html`<counter-app></counter-app>`;
+
 render(
 	// $greeting,
 	// $form,
@@ -110,6 +114,7 @@ render(
 	// $clocker,
 	// $simpleArticles,
 	// $complexArticle,
-	$references,
+	// $references,
+	$counterApp,
 	document.getElementById('root')
 );
