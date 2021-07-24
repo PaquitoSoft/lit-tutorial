@@ -7,6 +7,8 @@ import './clock-v2';
 import './simple-article';
 import './complex-article';
 
+import './references';
+
 const name = 'PaquitoSoft';
 const $greeting = html`
 	<h1>Hello, ${name}</h1>
@@ -97,12 +99,17 @@ const $complexArticle = html`
 	</complex-article>
 `;
 
+const $references = html`
+	<focusable-input></focusable-input>
+`;
+
 render(
 	// $greeting,
 	// $form,
 	// $welcomer,
 	// $clocker,
 	// $simpleArticles,
-	$complexArticle,
+	// $complexArticle,
+	$references,
 	document.getElementById('root')
 );
