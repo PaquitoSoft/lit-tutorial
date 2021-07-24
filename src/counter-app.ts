@@ -1,4 +1,4 @@
-import { html, LitElement } from "lit";
+import { html, LitElement, css } from "lit";
 import { customElement, property, state } from 'lit/decorators.js';
 
 @customElement('counter-button')
@@ -31,10 +31,39 @@ class CounterButton extends LitElement {
 	}
 }
 
+const counterAppStyles = css`
+	.counter-app {
+		padding: 20px;
+	}
+
+	.main-value {
+		font-size: 24px;
+		font-weight: bolder;
+	}
+
+	.buttons-container {
+		border: 1px solid black;
+		border-radius: 4px;
+		padding: 10px;
+	}
+
+	.add-button {
+		border: 1px solid green;
+		padding: 5px 2px;
+	}
+
+	.substract-button {
+		border: 1px solid red;
+		padding: 5px 2px;
+	}
+`;
+
 @customElement('counter-app')
 class CounterApp extends LitElement {
 	@property({ type: Number })
 	counter: number = 0;
+
+	static styles = [counterAppStyles];
 
 	addToCounter(event: CustomEvent<{ step: number }>) {
 		this.counter += event.detail.step;
@@ -42,11 +71,11 @@ class CounterApp extends LitElement {
 
 	render() {
 		return html`
-			<div @counter-updated=${this.addToCounter}>
-				<p>Current counter: ${this.counter}</p>
-				<div>
-					<counter-button step=${-1}></counter-button>
-					<counter-button step=${1}></counter-button>
+			<div class="counter-app" @counter-updated=${this.addToCounter}>
+				<p class="main-value">Current counter: ${this.counter}</p>
+				<div class="buttons-container">
+					<counter-button class="substract-button" step=${-1}></counter-button>
+					<counter-button class="add-button" step=${1}></counter-button>
 				</div>
 			</div>
 		`;
