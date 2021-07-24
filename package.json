@@ -1,0 +1,21 @@
+{
+  "name": "lit-for-react-devs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "npm run build -- --watch",
+    "serve": "web-dev-server --node-resolve --watch --open --app-index public/index.html",
+    "dev": "concurrently \"npm run build:watch\" \"npm run serve\""
+  },
+  "author": "PaquitoSoft",
+  "license": "ISC",
+  "devDependencies": {
+    "@web/dev-server": "^0.1.18",
+    "concurrently": "^6.2.0"
+  },
+  "dependencies": {
+    "lit": "^2.0.0-rc.2"
+  }
+}
