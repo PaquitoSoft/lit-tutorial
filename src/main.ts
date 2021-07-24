@@ -54,6 +54,18 @@ class WelcomBanner extends LitElement {
 	}
 }
 
+@customElement('welcomer-banner')
+class Welcomer extends LitElement {
+	@property({ attribute: false })
+	data = { name: 'Foo '};
+
+	render() {
+		return html`
+			<h1>Hello, ${this.data.name}!!!</h1>
+		`;
+	}
+}
+
 // class WelcomBannerVanilla extends LitElement {
 // 	static get properties() {
 // 		return {
@@ -74,8 +86,13 @@ class WelcomBanner extends LitElement {
 // }
 // customElements.define('welcome-banner-vanilla', WelcomBannerVanilla);
 
+// const $welcomer = html`
+// 	<welcome-banner name="PaquitoSoft"></welcome-banner>
+// `;
+
+const person = { name: 'Perico' };
 const $welcomer = html`
-	<welcome-banner name="PaquitoSoft"></welcome-banner>
+	<welcomer-banner .data=${person}></welcomer-banner>
 `;
 
 const $clocker = html`
@@ -110,11 +127,11 @@ const $counterApp = html`<counter-app></counter-app>`;
 render(
 	// $greeting,
 	// $form,
-	// $welcomer,
+	$welcomer,
 	// $clocker,
 	// $simpleArticles,
 	// $complexArticle,
 	// $references,
-	$counterApp,
+	// $counterApp,
 	document.getElementById('root')
 );
